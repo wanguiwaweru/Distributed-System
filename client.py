@@ -1,8 +1,11 @@
 import threading
 import socket
+import logging
 
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client.connect(('127.0.0.1', 59000))
+logging.basicConfig(level=logging.INFO,
+                    filename="client_log.log", filemode="a")
 
 
 def client_receive():
@@ -13,7 +16,7 @@ def client_receive():
                 print(data)
 
         except:
-            print('Err!')
+            logging.error('error occured', exc_info=True)
             client.close()
             break
 
