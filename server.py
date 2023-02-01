@@ -1,21 +1,25 @@
 import threading
 import socket
 import logging
+
 logging.basicConfig(level=logging.INFO,
-                    filename="server_log.log", filemode="a")
+                    filename="server_log.log", filemode="a", format="%(asctime)s %(levelname)s %(message)s")
 
 
 host = '127.0.0.1'
 port = 59000
+
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind((host, port))
+
 N = int(input('Please configure the maximum connections needed ?'))
 server.listen(N)
+
 clients = []
 commands = []
 
-
 # Main function to receive the clients connection
+
 
 def receive():
     while True:
