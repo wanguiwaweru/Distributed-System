@@ -10,10 +10,15 @@ The clients send commands to the server which distributes them among the clients
 - Sockets
 
 ## Features
+
 - The clients are assigned ranks on first-come-first-serve basis.The ranks are from 0–N, 0 being the highest rank.
 - Only a client with a lower rank can execute a command of a higher rank client. 
 - Higher rank clients cannot execute commands by lower rank clients, so these commands are rejected. 
 - Logs of different events for system monitoring
+
+The demo below shows a distributed system where commands send by one client are sent to another client.
+
+![dist](https://user-images.githubusercontent.com/74382189/217649876-848d5711-2939-4511-b2da-44707f742eda.jpg)
 
 ## Getting started
 
